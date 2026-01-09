@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2792a967a3024b7aa466b964ab76ce1e, type: 3}
+  m_Name: UIManagerConfig
+  m_EditorClassIdentifier: 
+  rows:
+  - UIType: 0
+    IsModal: 0
+    DestroyOnClose: 0
+    Layer: 2000
+    Prefab: {fileID: 691415133012809061, guid: 2f18e8b9058f74e4680fb7ae62dab114, type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/LauncherWindow.prefab
+  - UIType: 1
+    IsModal: 0
+    DestroyOnClose: 0
+    Layer: 2000
+    Prefab: {fileID: 8365041667470081900, guid: a5f15cee08ab88e4fa1105c14036e11d,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/LobbyWindow.prefab
+  - UIType: 2
+    IsModal: 0
+    DestroyOnClose: 0
+    Layer: 2000
+    Prefab: {fileID: 1199975348118715793, guid: 0f75f59cbb6d5414e94451e18d4c54c0,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/CtrlWindow.prefab
+  - UIType: 3
+    IsModal: 0
+    DestroyOnClose: 0
+    Layer: 5000
+    Prefab: {fileID: 1381082288005461572, guid: b5c16238e1f18c347a4a17e9d076cb94,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/SceneLoadingWindow.prefab
+  - UIType: 4
+    IsModal: 0
+    DestroyOnClose: 0
+    Layer: 4000
+    Prefab: {fileID: 3095058479800593280, guid: 1d2e2701805bc6f49b1523e639b5777b,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/TipWindow.prefab
+  - UIType: 5
+    IsModal: 0
+    DestroyOnClose: 0
+    Layer: 3000
+    Prefab: {fileID: 3095058479800593280, guid: 6c280a24c31c74e4a8a262a17d043664,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/SettingWindow.prefab
+  - UIType: 6
+    IsModal: 0
+    DestroyOnClose: 0
+    Layer: 3000
+    Prefab: {fileID: 3095058479800593280, guid: aa78e0b749ca19740b59838f39919ff1,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/AnnouncementWindow.prefab
