@@ -5,3 +5,5 @@
 /Logs
 /UserSettings
 /*.csproj
+/*.sln
+/*.user
