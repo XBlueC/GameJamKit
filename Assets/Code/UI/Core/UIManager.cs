@@ -9,13 +9,11 @@ namespace Code.UI.Core
 {
     public class UIManager : SingletonMono<UIManager>
     {
-        public const string ConfigPath = "Assets/GameAssets/Prefabs/UI/UIManagerConfig.asset";
         public UIManagerConfig UIManagerConfig;
         public Camera UICamera;
         public Canvas Canvas;
         public List<LayerConfig> UILayerConfigs = new();
         private readonly Dictionary<UIType, UIConfig> _uiConfigs = new();
-
         private readonly Dictionary<UILayerType, UILayer> _uiLayers = new();
 
         protected override void Initialize()

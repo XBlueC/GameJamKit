@@ -28,28 +28,6 @@ namespace Code.Managers
 
         private void Update()
         {
-            if (_isLoading)
-            {
-                _time -= Time.deltaTime;
-                var progress = _operation.progress * 10 / 9;
-                var timeFlag = 1 - _time / minTime;
-                sliderValue = timeFlag < progress ? timeFlag : progress;
-                if (!(Math.Abs(sliderValue - 1) < 0.01))
-                {
-                    return;
-                }
-
-                _isLoading = false;
-                EventSystem.Instance.Publish(new SceneLoadingEnd());
-
-                _operation.allowSceneActivation = true;
-                // gameObject.SetActive(false);
-                _curScene = _loadingScene;
-                _curScene.Enter();
-
-                return;
-            }
-
             _curScene.Update();
         }
 
@@ -89,20 +67,39 @@ namespace Code.Managers
             _curScene.Exit();
             _loadingScene = targetScene;
             _isLoading = true;
-            // gameObject.SetActive(true);
             _time = minTime;
-            EventSystem.Instance.Publish(new SceneLoading());
+            EventSystem.Instance.Publish(new SceneLoadingStarted());
             UIManager.Instance.OnSceneLoaded();
 
             StartCoroutine(LoadScene(targetScene.SceneType().ToString()));
         }
 
-        public IEnumerator LoadScene(string sceneName)
+        private IEnumerator LoadScene(string sceneName)
         {
             _operation = SceneManager.LoadSceneAsync(sceneName);
-            _operation.allowSceneActivation = false;
+            if (_operation == null)
+            {
+                yield break;
+            }
 
-            yield return _operation;
+            _operation.allowSceneActivation = false;
+            sliderValue = 0;
+            while (_time > 0)
+            {
+                yield return null;
+                _time -= Time.deltaTime;
+                var progress = _operation.progress * 10 / 9;
+                var timeFlag = 1 - _time / minTime;
+                sliderValue = timeFlag < progress ? timeFlag : progress;
+            }
+
+            sliderValue = 1;
+            yield return new WaitForSeconds(1f);
+            _isLoading = false;
+            EventSystem.Instance.Publish(new SceneLoadingCompleted());
+            _operation.allowSceneActivation = true;
+            _curScene = _loadingScene;
+            _curScene.Enter();
         }
     }
 }

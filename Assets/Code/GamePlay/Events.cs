@@ -1,10 +1,10 @@
 namespace Code.GamePlay
 {
-    public class SceneLoading
+    public struct SceneLoadingStarted
     {
     }
 
-    public class SceneLoadingEnd
+    public struct SceneLoadingCompleted
     {
     }
 }

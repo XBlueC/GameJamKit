@@ -35,6 +35,7 @@ namespace Code.UI.Core
             var rectTransform = layerGo.AddComponent<RectTransform>();
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
+            rectTransform.sizeDelta = Vector2.zero;
             // 添加并配置Canvas
             Canvas = layerGo.AddComponent<Canvas>();
             Canvas.overrideSorting = true;

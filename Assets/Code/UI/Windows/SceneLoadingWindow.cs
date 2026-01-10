@@ -17,8 +17,8 @@ namespace Code.UI.Windows
 
         public override void OnInit()
         {
-            Subscribe<SceneLoading>(OnSceneLoading);
-            Subscribe<SceneLoadingEnd>(OnSceneLoadingEnd);
+            Subscribe<SceneLoadingStarted>(OnSceneLoadingStarted);
+            Subscribe<SceneLoadingCompleted>(OnSceneLoadingCompleted);
         }
 
         public override void OnShow(UIArgs args)
@@ -26,12 +26,12 @@ namespace Code.UI.Windows
             root.SetActive(false);
         }
 
-        private void OnSceneLoadingEnd(SceneLoadingEnd obj)
+        private void OnSceneLoadingCompleted(SceneLoadingCompleted obj)
         {
             root.SetActive(false);
         }
 
-        private void OnSceneLoading(SceneLoading obj)
+        private void OnSceneLoadingStarted(SceneLoadingStarted obj)
         {
             slider.value = 0;
             root.SetActive(true);
@@ -41,6 +41,7 @@ namespace Code.UI.Windows
 
         private IEnumerator Loading()
         {
+            rate.text = "0%";
             while (true)
             {
                 yield return null;
@@ -48,10 +49,9 @@ namespace Code.UI.Windows
                 slider.value = sliderValue;
                 var round = Math.Round(sliderValue * 100, 1);
                 rate.text = $"{round}%";
-                if (Math.Abs(sliderValue - 1) < 0.01)
-                {
-                    break;
-                }
+                if (!(Math.Abs(sliderValue - 1) < 0.01)) continue;
+                rate.text = "100%";
+                break;
             }
         }
     }

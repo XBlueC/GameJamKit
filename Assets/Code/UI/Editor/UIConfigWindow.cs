@@ -10,6 +10,7 @@ namespace Code.UI.Editor
 {
     public class UIConfigWindow : EditorWindow
     {
+        public const string ConfigPath = "Assets/GameAssets/Prefabs/UI/UIManagerConfig.asset";
         private UIManagerConfig _config;
         private Vector2 _scrollPos;
 
@@ -167,13 +168,12 @@ namespace Code.UI.Editor
         private void SaveConfig()
         {
             if (!_config) return;
-            const string configPath = UIManager.ConfigPath;
-            var dir = Path.GetDirectoryName(configPath);
+            var dir = Path.GetDirectoryName(ConfigPath);
             if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
+                Directory.CreateDirectory(dir!);
 
-            if (AssetDatabase.LoadAssetAtPath<UIManagerConfig>(configPath) == null)
-                AssetDatabase.CreateAsset(_config, configPath);
+            if (AssetDatabase.LoadAssetAtPath<UIManagerConfig>(ConfigPath) == null)
+                AssetDatabase.CreateAsset(_config, ConfigPath);
             else
                 EditorUtility.SetDirty(_config);
 
