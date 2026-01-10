@@ -10,6 +10,11 @@ namespace Code.Scene
             return Scene.SceneType.GameScene;
         }
 
+        public override string GetName()
+        {
+            return nameof(Scene.SceneType.GameScene);
+        }
+
         public override void Enter()
         {
             UIUtil.OpenUI(UIType.Control);
