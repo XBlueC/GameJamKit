@@ -18,7 +18,6 @@ namespace Code
 
         public void Start()
         {
-            UIManager.Instance.Init();
             SceneFlow.Instance.StartLoadScene(SceneType.Home);
             UIManager.Instance.OpenUI(UIType.Loader);
         }

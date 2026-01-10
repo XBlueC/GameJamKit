@@ -1,7 +1,6 @@
 using Code.Managers;
 using Code.Scene;
 using Code.UI.Core;
-using UnityEditor;
 
 namespace Code.UI.Windows
 {
@@ -26,9 +25,9 @@ namespace Code.UI.Windows
         private void Quit()
         {
 #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
-		    Application.Quit();
+            UnityEngine.Application.Quit();
 #endif
         }
     }

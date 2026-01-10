@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Code.Core;
 using Code.Utils;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +10,10 @@ namespace Code.UI.Core
     public class UIManager : SingletonMono<UIManager>
     {
         public const string ConfigPath = "Assets/GameAssets/Prefabs/UI/UIManagerConfig.asset";
-
+        public UIManagerConfig UIManagerConfig;
         public Camera UICamera;
         public Canvas Canvas;
+        public List<LayerConfig> UILayerConfigs = new();
         private readonly Dictionary<UIType, UIConfig> _uiConfigs = new();
 
         private readonly Dictionary<UILayerType, UILayer> _uiLayers = new();
@@ -21,56 +21,16 @@ namespace Code.UI.Core
         protected override void Initialize()
         {
             Canvas.gameObject.GetOrAddComponent<CanvasScaler>();
-
-            var uiLayers = new List<UILayer>
+            foreach (var layer in UILayerConfigs)
             {
-                new(new LayerConfig
+                _uiLayers.Add(layer.LayerType, new UILayer(new LayerConfig
                 {
-                    LayerType = UILayerType.SceneLayer, ClearOnSceneLoad = true, Parent = Canvas.transform,
-                    UseScreenSpace = true
-                }),
-                new(new LayerConfig
-                {
-                    LayerType = UILayerType.Background, ClearOnSceneLoad = true, Parent = Canvas.transform,
-                    UseScreenSpace = true
-                }),
-                new(new LayerConfig
-                {
-                    LayerType = UILayerType.Normal, ClearOnSceneLoad = true, Parent = Canvas.transform,
-                    UseScreenSpace = true
-                }),
-                new(new LayerConfig
-                {
-                    LayerType = UILayerType.Popup, ClearOnSceneLoad = true, Parent = Canvas.transform,
-                    UseScreenSpace = true
-                }),
-                new(new LayerConfig
-                {
-                    LayerType = UILayerType.Tips, ClearOnSceneLoad = true, Parent = Canvas.transform,
-                    UseScreenSpace = true
-                }),
-                new(new LayerConfig
-                {
-                    LayerType = UILayerType.Top, ClearOnSceneLoad = false, Parent = Canvas.transform,
-                    UseScreenSpace = true
-                })
-            };
-
-            foreach (var layer in uiLayers)
-            {
-                _uiLayers.Add(layer.LayerType, layer);
-            }
-        }
-
-        public void Init()
-        {
-            var config = AssetDatabase.LoadAssetAtPath<UIManagerConfig>(ConfigPath);
-            if (config == null)
-            {
-                throw new Exception("UIManagerConfig not found");
+                    LayerType = layer.LayerType, ClearOnSceneLoad = layer.ClearOnSceneLoad,
+                    UseScreenSpace = layer.UseScreenSpace
+                }, Canvas.transform));
             }
 
-            foreach (var row in config.rows)
+            foreach (var row in UIManagerConfig.rows)
             {
                 _uiConfigs[row.UIType] = row;
             }

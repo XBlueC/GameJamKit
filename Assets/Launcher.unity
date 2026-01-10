@@ -382,8 +382,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712187b873d24889b1f6ebacccbfe82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIManagerConfig: {fileID: 11400000, guid: c7c028ea15764594b8377b602cef2eec, type: 2}
   UICamera: {fileID: 7584121871668619328}
   Canvas: {fileID: 6886025355887235096}
+  UILayerConfigs:
+  - ClearOnSceneLoad: 1
+    LayerType: 0
+    UseScreenSpace: 1
+  - ClearOnSceneLoad: 1
+    LayerType: 1000
+    UseScreenSpace: 1
+  - ClearOnSceneLoad: 1
+    LayerType: 2000
+    UseScreenSpace: 1
+  - ClearOnSceneLoad: 1
+    LayerType: 3000
+    UseScreenSpace: 1
+  - ClearOnSceneLoad: 1
+    LayerType: 4000
+    UseScreenSpace: 1
+  - ClearOnSceneLoad: 0
+    LayerType: 5000
+    UseScreenSpace: 1
 --- !u!4 &4261902010888391968
 Transform:
   m_ObjectHideFlags: 0

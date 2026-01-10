@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.Core;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -11,11 +10,11 @@ namespace Code.UI.Core
     /// <summary>
     /// 层级配置数据
     /// </summary>
+    [Serializable]
     public class LayerConfig
     {
         public bool ClearOnSceneLoad = false;
         public UILayerType LayerType;
-        public Transform Parent;
         public bool UseScreenSpace = true;
     }
 
@@ -23,13 +22,13 @@ namespace Code.UI.Core
     {
         private readonly List<UIBase> _order = new();
 
-        public UILayer(LayerConfig config)
+        public UILayer(LayerConfig config, Transform parent)
         {
             LayerType = config.LayerType;
             ClearOnSceneLoad = config.ClearOnSceneLoad;
 
             var layerGo = new GameObject($"Layer{config.LayerType}");
-            layerGo.transform.SetParent(config.Parent);
+            layerGo.transform.SetParent(parent);
             layerGo.transform.localPosition = Vector3.zero;
             layerGo.transform.localRotation = Quaternion.identity;
             layerGo.transform.localScale = Vector3.one;
