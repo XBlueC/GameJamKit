@@ -71,7 +71,7 @@ namespace Code.Managers
             EventSystem.Instance.Publish(new SceneLoadingStarted());
             UIManager.Instance.OnSceneLoaded();
 
-            StartCoroutine(LoadScene(targetScene.SceneType().ToString()));
+            StartCoroutine(LoadScene(targetScene.GetName()));
         }
 
         private IEnumerator LoadScene(string sceneName)

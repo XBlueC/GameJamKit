@@ -14,7 +14,7 @@ namespace Code.UI.Windows
         {
             startButton.onClick.AddListener(EnterGame);
             exitButton.onClick.AddListener(Quit);
-            announcementButton.onClick.AddListener(() => { UIManager.Instance.OpenUI(UIType.Announcement); });
+            announcementButton.onClick.AddListener(() => { UIManager.Instance.OpenUI(UIType.About); });
         }
 
         private void EnterGame()

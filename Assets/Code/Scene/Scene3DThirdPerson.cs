@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Code.Scene
 {
     /// <summary>
@@ -19,14 +17,10 @@ namespace Code.Scene
 
         public override void Enter()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
 
         public override void Exit()
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
 
         public override void Update()

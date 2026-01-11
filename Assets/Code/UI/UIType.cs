@@ -8,6 +8,6 @@
         Loader,
         Tip,
         Setting,
-        Announcement
+        About
     }
 }
