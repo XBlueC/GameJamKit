@@ -28,7 +28,7 @@ namespace Code.Managers
 
         private void Update()
         {
-            _curScene.Update();
+            _curScene?.Update();
         }
 
         protected override void Initialize()
@@ -52,19 +52,12 @@ namespace Code.Managers
                 return;
             }
 
-            if (_curScene == null)
-            {
-                _curScene = targetScene;
-                targetScene.Enter();
-                return;
-            }
-
-            if (_isLoading || sceneType == _curScene.SceneType())
+            if (_isLoading || sceneType == _curScene?.SceneType())
             {
                 return;
             }
 
-            _curScene.Exit();
+            _curScene?.Exit();
             _loadingScene = targetScene;
             _isLoading = true;
             _time = minTime;
@@ -94,12 +87,12 @@ namespace Code.Managers
             }
 
             sliderValue = 1;
-            yield return new WaitForSeconds(1f);
-            _isLoading = false;
-            EventSystem.Instance.Publish(new SceneLoadingCompleted());
-            _operation.allowSceneActivation = true;
             _curScene = _loadingScene;
             _curScene.Enter();
+            _operation.allowSceneActivation = true;
+            yield return null;
+            _isLoading = false;
+            EventSystem.Instance.Publish(new SceneLoadingCompleted());
         }
     }
 }

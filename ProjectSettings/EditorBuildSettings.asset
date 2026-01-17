@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameAssets/Scenes/Home.unity
     guid: cb4bdaec72640874583610392d766279
+  - enabled: 1
+    path: Assets/GameAssets/Scenes/Scene_3D_ThirdPerson.unity
+    guid: 762d5f9d4f5454d4d9266c08d083d1df
+  - enabled: 1
+    path: Assets/GameAssets/Scenes/Scene_2D_Platformer.unity
+    guid: 146c61b40a89ea940b73da215daf5c32
   m_configObjects: {}

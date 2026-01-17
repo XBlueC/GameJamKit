@@ -4,7 +4,7 @@
     {
         Launcher,
         Lobby,
-        Control,
+        PlayerHud,
         Loader,
         Tip,
         Setting,

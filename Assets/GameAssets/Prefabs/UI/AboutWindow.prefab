@@ -595,13 +595,15 @@ MonoBehaviour:
   closeBtn: {fileID: 1861052051786800024}
   members:
   - name: PPFox
-    role: 2
+    role: "\u7A0B\u5E8F"
   - name: wcng
-    role: 2
+    role: "\u7A0B\u5E8F"
   - name: yxxxi
-    role: 0
-  - name: Qwen
-    role: 1
+    role: "\u7F8E\u672F"
+  - name: YIZHI
+    role: "\u7F8E\u672F"
+  - name: XT
+    role: "\u7F8E\u672F"
   memberPrefab: {fileID: 7523156782755382769}
   memberParent: {fileID: 5544064227904491295}
 --- !u!1 &3469098098782126104

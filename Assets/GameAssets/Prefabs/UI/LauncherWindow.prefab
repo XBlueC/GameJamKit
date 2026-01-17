@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 4075964027708693673}
   exitButton: {fileID: 5240841664520626212}
-  announcementButton: {fileID: 3254720390965299905}
+  aboutButton: {fileID: 3254720390965299905}
 --- !u!114 &6546354375391642083
 MonoBehaviour:
   m_ObjectHideFlags: 0

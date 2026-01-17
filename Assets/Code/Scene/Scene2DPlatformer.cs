@@ -1,3 +1,6 @@
+using Code.UI;
+using Code.Utils;
+
 namespace Code.Scene
 {
     /// <summary>
@@ -17,6 +20,7 @@ namespace Code.Scene
 
         public override void Enter()
         {
+            UIUtil.OpenUI(UIType.PlayerHud);
         }
 
         public override void Exit()

@@ -35,9 +35,9 @@ RectTransform:
   - {fileID: 3188166989758945158}
   m_Father: {fileID: 8365041667470081901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1764, y: -85}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -156, y: -85}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &767255703051056275
@@ -550,7 +550,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8365041667470081901}
   - component: {fileID: 2323683691076639791}
-  - component: {fileID: 1489171736}
   - component: {fileID: 7714630259493608692}
   m_Layer: 5
   m_Name: LobbyWindow
@@ -595,19 +594,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 165201611765926100}
   settingButton: {fileID: 4330452167854753009}
---- !u!114 &1489171736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8365041667470081900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
 --- !u!114 &7714630259493608692
 MonoBehaviour:
   m_ObjectHideFlags: 0

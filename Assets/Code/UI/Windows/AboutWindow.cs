@@ -7,18 +7,11 @@ using UnityEngine.UI;
 
 namespace Code.UI.Windows
 {
-    public enum Role
-    {
-        Artist,
-        Programmer,
-        Designer,
-    }
-
     [Serializable]
     public class StaffMember
     {
         public string name;
-        public Role role;
+        public string role;
     }
 
     public class AboutWindow : UIBase
@@ -41,7 +34,7 @@ namespace Code.UI.Windows
                 var go = Instantiate(memberPrefab, memberParent);
                 go.gameObject.SetActive(true);
                 go.memberName.text = member.name;
-                go.role.text = member.role.ToString();
+                go.role.text = member.role;
             }
         }
     }

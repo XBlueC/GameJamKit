@@ -6,6 +6,7 @@ namespace Code.Core.Event
     public class EventSystem : Singleton<EventSystem>, IEventSystem
     {
         private readonly Dictionary<Type, object> _handlers = new();
+        public Action<string> OnError;
 
         public void Publish<T>(T t)
         {
@@ -26,7 +27,7 @@ namespace Code.Core.Event
                 }
                 catch (Exception e)
                 {
-                    Log.Error(e.ToString());
+                    OnError?.Invoke(e.ToString());
                 }
             }
         }
