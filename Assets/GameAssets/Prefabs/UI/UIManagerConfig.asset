@@ -17,41 +17,47 @@ MonoBehaviour:
     IsModal: 0
     DestroyOnClose: 0
     Layer: 2000
-    Prefab: {fileID: 0}
-    AssetPath: 
+    Prefab: {fileID: 3095058479800593280, guid: aa78e0b749ca19740b59838f39919ff1,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/AboutWindow.prefab
   - UIName: Launcher
     IsModal: 0
     DestroyOnClose: 0
     Layer: 2000
-    Prefab: {fileID: 0}
-    AssetPath: 
+    Prefab: {fileID: 691415133012809061, guid: 2f18e8b9058f74e4680fb7ae62dab114, type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/LauncherWindow.prefab
   - UIName: Loader
     IsModal: 0
     DestroyOnClose: 0
-    Layer: 2000
-    Prefab: {fileID: 0}
-    AssetPath: 
+    Layer: 5000
+    Prefab: {fileID: 1381082288005461572, guid: b5c16238e1f18c347a4a17e9d076cb94,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/SceneLoadingWindow.prefab
   - UIName: Lobby
     IsModal: 0
     DestroyOnClose: 0
     Layer: 2000
-    Prefab: {fileID: 0}
-    AssetPath: 
+    Prefab: {fileID: 8365041667470081900, guid: a5f15cee08ab88e4fa1105c14036e11d,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/LobbyWindow.prefab
   - UIName: PlayerHud
     IsModal: 0
     DestroyOnClose: 0
     Layer: 2000
-    Prefab: {fileID: 0}
-    AssetPath: 
+    Prefab: {fileID: 1199975348118715793, guid: 0f75f59cbb6d5414e94451e18d4c54c0,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/PlayerHudWindow.prefab
   - UIName: Setting
     IsModal: 0
     DestroyOnClose: 0
     Layer: 2000
-    Prefab: {fileID: 0}
-    AssetPath: 
+    Prefab: {fileID: 3095058479800593280, guid: 6c280a24c31c74e4a8a262a17d043664,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/SettingWindow.prefab
   - UIName: Tip
     IsModal: 0
     DestroyOnClose: 0
     Layer: 2000
-    Prefab: {fileID: 0}
-    AssetPath: 
+    Prefab: {fileID: 3095058479800593280, guid: 1d2e2701805bc6f49b1523e639b5777b,
+      type: 3}
+    AssetPath: Assets/GameAssets/Prefabs/UI/TipWindow.prefab
