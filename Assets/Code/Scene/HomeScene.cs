@@ -17,7 +17,7 @@ namespace Code.Scene
 
         public override void Enter()
         {
-            UIUtil.OpenUI(UIType.Launcher);
+            UIHelper.OpenUI(UIType.Launcher);
         }
 
         public override void Exit()

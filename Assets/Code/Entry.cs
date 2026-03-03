@@ -2,7 +2,7 @@ using Code.Core.Event;
 using Code.Managers;
 using Code.Scene;
 using Code.UI;
-using Code.UI.Core;
+using Code.Utils;
 using UnityEngine;
 
 namespace Code
@@ -13,7 +13,7 @@ namespace Code
         {
             EventSystem.Instance.OnError += Debug.LogError;
             SceneFlow.Instance.StartLoadScene(SceneType.Home);
-            UIManager.Instance.OpenUI(UIType.Loader);
+            UIHelper.OpenUI(UIType.Loader);
         }
     }
 }

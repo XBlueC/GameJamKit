@@ -1,6 +1,6 @@
+using Code.Core.UI;
 using Code.Managers;
 using Code.Scene;
-using Code.UI.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712187b873d24889b1f6ebacccbfe82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerConfig: {fileID: 11400000, guid: c7c028ea15764594b8377b602cef2eec, type: 2}
+  uiConfig: {fileID: 11400000, guid: c7c028ea15764594b8377b602cef2eec, type: 2}
   UICamera: {fileID: 0}
   Canvas: {fileID: 6886025355887235096}
   UILayerConfigs:

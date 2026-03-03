@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
+using Code.Core.UI;
 using Code.GamePlay;
 using Code.Managers;
-using Code.UI.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

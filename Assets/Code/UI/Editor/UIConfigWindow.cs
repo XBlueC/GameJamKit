@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Code.UI.Core;
+using Code.Core.UI;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ namespace Code.UI.Editor
     public class UIConfigWindow : EditorWindow
     {
         public const string ConfigPath = "Assets/GameAssets/Prefabs/UI/UIManagerConfig.asset";
-        private UIManagerConfig _config;
+        private UIConfig _config;
         private Vector2 _scrollPos;
 
         private void OnEnable()
@@ -66,7 +66,7 @@ namespace Code.UI.Editor
                 var row = _config.rows[i];
                 EditorGUILayout.BeginHorizontal();
 
-                EditorGUILayout.LabelField(row.UIType.ToString(), GUILayout.Width(120));
+                EditorGUILayout.LabelField(row.UIName.ToString(), GUILayout.Width(120));
                 // row.Name = row.UIType.ToString();
                 row.IsModal = EditorGUILayout.Toggle(row.IsModal, GUILayout.Width(50));
                 row.DestroyOnClose = EditorGUILayout.Toggle(row.DestroyOnClose, GUILayout.Width(60));
@@ -109,15 +109,15 @@ namespace Code.UI.Editor
 
         private void LoadOrCreateConfig()
         {
-            var guids = AssetDatabase.FindAssets("t:UIManagerConfig");
+            var guids = AssetDatabase.FindAssets($"t:{nameof(UIConfig)}");
             if (guids.Length > 0)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guids[0]);
-                _config = AssetDatabase.LoadAssetAtPath<UIManagerConfig>(path);
+                _config = AssetDatabase.LoadAssetAtPath<UIConfig>(path);
             }
             else
             {
-                _config = CreateInstance<UIManagerConfig>();
+                _config = CreateInstance<UIConfig>();
             }
         }
 
@@ -125,10 +125,10 @@ namespace Code.UI.Editor
         {
             var menu = new GenericMenu();
             var allTypes = Enum.GetValues(typeof(UIType));
-            var existingTypes = new HashSet<UIType>(_config.rows.Select(r => r.UIType));
+            var existingTypes = new HashSet<string>(_config.rows.Select(r => r.UIName));
             var hasValidOption = false;
             foreach (UIType type in allTypes)
-                if (existingTypes.Contains(type))
+                if (existingTypes.Contains(type.ToString()))
                 {
                     menu.AddDisabledItem(new GUIContent(type + " (already added)"));
                 }
@@ -137,7 +137,7 @@ namespace Code.UI.Editor
                     var text = type.ToString();
                     menu.AddItem(new GUIContent(text), false, () =>
                     {
-                        _config.AddRow(type);
+                        _config.AddRow(text);
                         EditorUtility.SetDirty(_config);
                         Repaint();
                     });
@@ -156,8 +156,8 @@ namespace Code.UI.Editor
             // 按 UIType 的 int 值升序排列
             _config.rows.Sort((a, b) =>
             {
-                var orderA = a.UIType;
-                var orderB = b.UIType;
+                var orderA = a.UIName;
+                var orderB = b.UIName;
                 return orderA.CompareTo(orderB);
             });
 
@@ -172,7 +172,7 @@ namespace Code.UI.Editor
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir!);
 
-            if (AssetDatabase.LoadAssetAtPath<UIManagerConfig>(ConfigPath) == null)
+            if (AssetDatabase.LoadAssetAtPath<UIConfig>(ConfigPath) == null)
                 AssetDatabase.CreateAsset(_config, ConfigPath);
             else
                 EditorUtility.SetDirty(_config);

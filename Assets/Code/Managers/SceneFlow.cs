@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Code.Core;
 using Code.Core.Event;
+using Code.Core.UI;
 using Code.GamePlay;
 using Code.Scene;
-using Code.UI.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

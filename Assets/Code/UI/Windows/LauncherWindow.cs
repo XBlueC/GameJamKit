@@ -1,6 +1,7 @@
+using Code.Core.UI;
 using Code.Managers;
 using Code.Scene;
-using Code.UI.Core;
+using Code.Utils;
 using UnityEngine.UI;
 
 namespace Code.UI.Windows
@@ -15,7 +16,7 @@ namespace Code.UI.Windows
         {
             startButton.onClick.AddListener(EnterGame);
             exitButton.onClick.AddListener(Quit);
-            aboutButton.onClick.AddListener(() => { UIManager.Instance.OpenUI(UIType.About); });
+            aboutButton.onClick.AddListener(() => { UIHelper.OpenUI(UIType.About); });
         }
 
         private void EnterGame()

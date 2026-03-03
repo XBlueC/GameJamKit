@@ -1,4 +1,5 @@
-using Code.UI.Core;
+using Code.Core.UI;
+using Code.Utils;
 using UnityEngine.UI;
 
 namespace Code.UI.Windows
@@ -11,7 +12,7 @@ namespace Code.UI.Windows
         private void Start()
         {
             startButton.onClick.AddListener(StartGame);
-            settingButton.onClick.AddListener(() => { UIManager.Instance.OpenUI(UIType.Setting); });
+            settingButton.onClick.AddListener(() => { UIHelper.OpenUI(UIType.Setting); });
         }
 
         private void StartGame()

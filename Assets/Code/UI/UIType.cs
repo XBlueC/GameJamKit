@@ -6,7 +6,7 @@
         Lobby,
         PlayerHud,
         Loader,
-        Tip,
+        // Tip,
         Setting,
         About
     }
